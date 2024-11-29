@@ -1,3 +1,3 @@
-# RESTful API
+# Store management RESTful API
 
-Store management system using a RESTful API, advanced data handling, and serialization techniques.
+This system uses a RESTful API, advanced data handling, and serialization techniques.
