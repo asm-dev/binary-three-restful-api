@@ -55,15 +55,3 @@ class BinarySearchTree:
             self._print_in_order(current.left)
             print(f"Clave: {current.key}, Valor: {current.value}")
             self._print_in_order(current.right)
-
-bst = BinarySearchTree()
-bst.insert(10, "Producto A")
-bst.insert(30, "Producto A")
-bst.insert(2, "Producto A")
-bst.insert(14, "Producto A")
-
-bst.print_tree()
-
-print("Buscar clave 10:", bst.search(10))
-print("Buscar clave 100:", bst.search(100))
-print("Buscar clave 2:", bst.search(2))

@@ -5,6 +5,8 @@ Esta aplicación permite el manejo digital del store de una tienda. El sistema u
 Para probar el BST:
 
 ```
+bst = BinarySearchTree()
+
 bst.insert(10, "Producto A")
 bst.insert(30, "Producto A")
 bst.insert(2, "Producto A")
