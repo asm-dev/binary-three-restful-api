@@ -19,6 +19,13 @@ conda activate tienda-api
 3. Instala las **dependencias**. No son muchas, pero son necesarias, `pip install -r requirements.txt`
 4. Ejecuta la API `python app/app.py`. La API estará disponible en `http://127.0.0.1:5000/`
 
+Alternativamente, puedes crear un contenedor docker para ejecutar la aplicación:
+
+```
+docker build -t tienda-api .
+docker run -p 5000:5000 tienda-api
+````
+
 &nbsp;
 
 ## Endpoints disponibles
@@ -77,13 +84,8 @@ print("Buscar clave 2:", bst.search(2))
 &nbsp;
 
 ## Cómo probar la API
-### Usando Postman o Bruno
+
 1. Instalar [Postman](https://www.postman.com/) o [Bruno](https://www.usebruno.com/).
 2. Crear una nueva petición con la URL `http://127.0.0.1:5000/products`.
 3. Enviar diferentes solicitudes (`POST`, `GET`, `PUT`, `DELETE`).
 
-### Construir y ejecutar el contenedor Docker
-```sh
-docker build -t tienda-api .
-docker run -p 5000:5000 tienda-api
-````
