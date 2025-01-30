@@ -22,8 +22,8 @@ conda activate tienda-api
 Alternativamente, puedes crear un contenedor docker para ejecutar la aplicación:
 
 ```
-docker build -t tienda-api .
-docker run -p 5000:5000 tienda-api
+docker build -t tienda-online-app .
+docker run -d -p 5000:5000 --name online-shop-container tienda-online-app
 ````
 
 &nbsp;
