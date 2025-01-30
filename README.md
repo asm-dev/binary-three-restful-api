@@ -19,7 +19,7 @@ conda activate tienda-api
 3. Instala las **dependencias**. No son muchas, pero son necesarias, `pip install -r requirements.txt`
 4. Ejecuta la API `python app/app.py`. La API estará disponible en `http://127.0.0.1:5000/`
 
-Alternativamente, puedes crear un contenedor docker para ejecutar la aplicación:
+Alternativamente, puedes crear un contenedor **Docker** para ejecutar la aplicación:
 
 ```
 docker build -t tienda-online-app .
