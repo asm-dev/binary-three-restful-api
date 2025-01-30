@@ -1,4 +1,4 @@
-# RESTful API para la gestión de datos de una tienda online
+# RESTful API para la gestión de datos de una tienda
 
 Esta aplicación permite el manejo digital del _store_ de una tienda. El sistema utiliza una RESTful API creada con **Flask** para manejar los datos, que son gestionados con ayuda de un árbol de búsqueda binario, una lista enlazada y técnicas de serialización. Se asegura la persistencia de datos grabándolos en un JSON.
 
