@@ -65,3 +65,13 @@ class BinarySearchTree:
         while current.left is not None:
             current = current.left
         return current
+
+    def to_list(self):
+        products = []
+        def inorder_traverse(nodo):
+            if nodo:
+                inorder_traverse(nodo.left)
+                products.append(nodo.value)
+                inorder_traverse(nodo.right)
+        inorder_traverse(self.root)
+        return products
