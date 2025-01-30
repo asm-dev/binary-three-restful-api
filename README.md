@@ -1,4 +1,4 @@
-# RESTful API
+# RESTful API para la gestión de datos de una tienda online
 
 Esta aplicación permite el manejo digital del _store_ de una tienda. El sistema utiliza una RESTful API creada con **Flask** para manejar los datos, que son gestionados con ayuda de un árbol de búsqueda binario, una lista enlazada y técnicas de serialización. Se asegura la persistencia de datos grabándolos en un JSON.
 
@@ -87,7 +87,3 @@ print("Buscar clave 2:", bst.search(2))
 docker build -t tienda-api .
 docker run -p 5000:5000 tienda-api
 ````
-
-FUNCIONAMIENTO BST
-
-Podemos probar el BST:
