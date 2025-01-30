@@ -1,0 +1,4 @@
+[
+  { "id": 1, "products": [1, 2], "total": 1225 },
+  { "id": 2, "products": [2, 3], "total": 70 }
+]

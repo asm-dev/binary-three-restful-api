@@ -1,8 +1,8 @@
 from flask import request
 from flask_restful import Resource
-from binary_search_tree import BinarySearchTree
-from storage import save_json, load_json
-import messages
+from models.binary_search_tree import BinarySearchTree
+from utils.storage import save_json, load_json
+import utils.messages as messages
 
 bst = BinarySearchTree()
 

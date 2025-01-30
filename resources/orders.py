@@ -1,8 +1,8 @@
 from flask import request
 from flask_restful import Resource
-from linked_list import LinkedList
-from storage import save_json, load_json
-import messages
+from models.linked_list import LinkedList
+from utils.storage import save_json, load_json
+import utils.messages as messages
 
 orderList = LinkedList()
 
