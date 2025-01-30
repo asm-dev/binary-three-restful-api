@@ -25,7 +25,7 @@ class LinkedList:
                 return current.data
             current = current.next
         return None
-    
+
     def delete(self, id):
         if self.head is None:
             return
@@ -38,3 +38,11 @@ class LinkedList:
                 current.next = current.next.next
                 return
             current = current.next
+
+    def list_all(self):
+        orderList = []
+        current = self.head
+        while current:
+            orderList.append({"id": current.id, "data": current.data})
+            current = current.next
+        return orderList

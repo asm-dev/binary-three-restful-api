@@ -4,11 +4,10 @@ class Node:
         self.value = value
         self.left = None
         self.right = None
-
 class BinarySearchTree:
     def __init__(self):
         self.root = None
-    
+
     def insert(self, key, value):
         if self.root is None:
             self.root = Node(key, value)
@@ -28,10 +27,10 @@ class BinarySearchTree:
                 self._insert(current.right, key, value)
         else:
             raise ValueError("Las claves duplicadas no están permitidas.")
-        
+
     def search(self, key):
         return self._search(self.root, key)
-    
+
     def _search(self, current, key):
         if current is None:
             return None
@@ -41,17 +40,28 @@ class BinarySearchTree:
             return self._search(current.left, key)
         else:
             return self._search(current.right, key)
-        
-    def print_tree(self):
-        """Pinta el árbol en sentido transversal en orden"""
-        if self.root is None:
-            print("El árbol está vacío.")
+
+    def delete(self, key):
+        self.root = self._delete(self.root, key)
+
+    def _delete(self, current, key):
+        if current is None:
+            return current
+        if key < current.key:
+            current.left = self._delete(current.left, key)
+        elif key > current.key:
+            current.right = self._delete(current.right, key)
         else:
-            print("Estado actual del árbol (in- order):")
-            self._print_in_order(self.root)
-        
-    def _print_in_order(self, current):
-        if current is not None:
-            self._print_in_order(current.left)
-            print(f"Clave: {current.key}, Valor: {current.value}")
-            self._print_in_order(current.right)
+            if current.left is None:
+                return current.right
+            elif current.right is None:
+                return current.left
+            min_larger_node = self._get_min(current.right)
+            current.key, current.value = min_larger_node.key, min_larger_node.value
+            current.right = self._delete(current.right, min_larger_node.key)
+        return current
+
+    def _get_min(self, current):
+        while current.left is not None:
+            current = current.left
+        return current
