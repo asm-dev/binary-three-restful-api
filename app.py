@@ -83,13 +83,15 @@ class OrderListResource(Resource):
 def save_products():
     with open("products.json", "w") as f:
         products = []
-        def traverse_tree(nodo):
+        
+        def inorder_traverse_tree(nodo):
             if nodo:
+                inorder_traverse_tree(nodo.left)
                 products.append(nodo.value)
-                traverse_tree(nodo.left)
-                traverse_tree(nodo.right)
-        traverse_tree(bst.root)
-        json.dump(products, f)
+                inorder_traverse_tree(nodo.right)
+
+        inorder_traverse_tree(bst.root)
+        json.dump(products, f, indent=4)
 
 def load_products():
     try:
