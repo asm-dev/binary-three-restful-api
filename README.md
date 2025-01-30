@@ -4,28 +4,27 @@ Esta aplicación permite el manejo digital del _store_ de una tienda. El sistema
 
 El proyecto sigue principios de código limpio. Es decir, legibilidad, simplicidad, modularidad, nombrado claro y consistente, entre otros.
 
+&nbsp;
+
 ## Instalación y ejecución
 
 1. **Clona** este repositorio en tu máquina local
 2. Crea un **entorno virtual**. Recomiento el uso de Anaconda
 
-```sh
+```
 conda create -n tienda-api python=3.10
 conda activate tienda-api
 ```
 
 3. Instala las **dependencias**. No son muchas, pero son necesarias, `pip install -r requirements.txt`
+4. Ejecuta la API `python app/app.py`. La API estará disponible en `http://127.0.0.1:5000/`
 
-```
-4. Ejecuta la API `python app/app.py`
+&nbsp;
 
-> La API estará disponible en `http://127.0.0.1:5000/`
-
----
 ## Endpoints disponibles
 > Se trata de una API de arquitectura **RESTful**, por lo que todas las **operaciones CRUD** (Crear, leer, actualizar y eliminar) están disponibles.
 
-### **Productos (BST)**
+#### Productos (BST)
 | Método | Endpoint           | Descripción                       |
 |--------|--------------------|-----------------------------------|
 | POST   | `/products`        | Agregar un producto              |
@@ -33,7 +32,7 @@ conda activate tienda-api
 | PUT    | `/products/<id>`   | Actualizar un producto por ID    |
 | DELETE | `/products/<id>`   | Eliminar un producto por ID      |
 
-### **Pedidos (Lista Enlazada)**
+#### Pedidos (Lista Enlazada)
 | Método | Endpoint       | Descripción                          |
 |--------|---------------|--------------------------------------|
 | POST   | `/orders`      | Crear un nuevo pedido               |
@@ -42,7 +41,9 @@ conda activate tienda-api
 | DELETE | `/orders/<id>` | Eliminar un pedido                  |
 | GET    | `/orders`      | Listar todos los pedidos            |
 
----
+
+&nbsp;
+
 ## Decisiones de desarollo
 
 ### **¿Por qué Flask?**
@@ -52,10 +53,9 @@ Elegí Flask para este proyecto debido a su simplicidad y flexibilidad. A difere
 - Permite búsquedas eficientes en **O(log n)** en promedio.
 - Optimiza la gestión de grandes volúmenes de productos.
 
-Si lo deseas entender mejor su funcionamiento, puedes probarlo separadamente:
+Si deseas entender mejor su funcionamiento, puedes probarlo separadamente:
 
 ```
-
 bst = BinarySearchTree()
 
 bst.insert(10, "Producto A")
@@ -68,14 +68,14 @@ bst.print_tree()
 print("Buscar clave 10:", bst.search(10))
 print("Buscar clave 100:", bst.search(100))
 print("Buscar clave 2:", bst.search(2))
-
 ````
 
 ### **Uso de Lista Enlazada para los pedidos**
-- Permite fácil adición y eliminación de pedidos sin necesidad de redimensionar estructuras.
-- Se adapta bien a sistemas donde los pedidos se gestionan en **orden de llegada**, como es el caso que nos ocupa: una tienda online.
+- Permite agregar y eliminar pedidos con mucha facilidad y rapidez ya que no hay necesidad de redimensionar estructuras.
+- Las *linked list* se adaptan bien a sistemas donde los pedidos se gestionan en **orden de llegada**, como es el caso que nos ocupa: una tienda online.
 
----
+&nbsp;
+
 ## Cómo probar la API
 ### Usando Postman o Bruno
 1. Instalar [Postman](https://www.postman.com/) o [Bruno](https://www.usebruno.com/).
