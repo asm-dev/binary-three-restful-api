@@ -83,9 +83,13 @@ print("Buscar clave 2:", bst.search(2))
 
 &nbsp;
 
-## Cómo probar la API
+## Pruebas de uso
 
-1. Instalar [Postman](https://www.postman.com/) o [Bruno](https://www.usebruno.com/).
-2. Crear una nueva petición con la URL `http://127.0.0.1:5000/products`.
-3. Enviar diferentes solicitudes (`POST`, `GET`, `PUT`, `DELETE`).
+Además de probar la API con tests (`pytest test/api_endpoints_spec.py`) he realizado varias pruebas de uso utilizando Postman/Bruno
+
+Prueba | Captura
+:------:|:-------:
+*Agregamos un pedido* |
+*Eliminamos un producto* |
+*Mostramos todos los pedidos* |
 
