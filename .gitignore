@@ -1,0 +1,11 @@
+__pycache__/
+.env
+.vscode/
+instance/
+migrations/
+*.bak
+*.cache
+flask_session/
+*.pytest_cache/
+docker-compose.override.yml
+.dockerignore
