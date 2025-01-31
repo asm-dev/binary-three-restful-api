@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_restful import Api
-from resources import ProductResource, OrdersResource, OrderListResource
+from resources import ProductResource, OrdersResource
 
 def create_app():
     app = Flask(__name__)
@@ -8,6 +8,5 @@ def create_app():
 
     api.add_resource(ProductResource, "/products", "/products/<int:id>")
     api.add_resource(OrdersResource, "/orders", "/orders/<int:id>")
-    api.add_resource(OrderListResource, "/orders")
 
     return app

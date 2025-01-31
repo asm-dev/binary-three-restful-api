@@ -15,9 +15,12 @@ class OrdersResource(Resource):
         save_json("orders.json", orderList.list_all())
         return messages.SUCCESS_ORDER_ADDED
 
-    def get(self, id):
-        order = orderList.find(id)
-        return (order, 200) if order else messages.ERROR_ORDER_NOT_FOUND
+    def get(self, id=None):
+        if id is None:
+            return orderList.list_all(), 200
+        else:
+            order = orderList.find(id)
+            return (order, 200) if order else messages.ERROR_ORDER_NOT_FOUND
 
     def put(self, id):
         data = request.get_json()
@@ -34,10 +37,6 @@ class OrdersResource(Resource):
         orderList.delete(id)
         save_json("orders.json", orderList.list_all())
         return messages.SUCCESS_ORDER_DELETED
-
-class OrderListResource(Resource):
-    def get(self):
-        return orderList.list_all(), 200
 
 def load_orders():
     orders = load_json("orders.json")
