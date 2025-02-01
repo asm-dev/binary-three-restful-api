@@ -85,7 +85,7 @@ print("Buscar clave 2:", bst.search(2))
 
 ## Pruebas de uso
 
-Además de probar la API con tests (`pytest test/api_endpoints_spec.py`) he realizado varias pruebas de uso utilizando Postman/Bruno
+Además de probar la API con tests (`pytest test/api_endpoints_spec.py`), he realizado varias pruebas de uso utilizando Postman y Bruno.
 
 Prueba | Captura
 :------:|:-------:
