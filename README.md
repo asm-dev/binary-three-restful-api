@@ -89,7 +89,7 @@ Además de probar la API con tests (`pytest test/api_endpoints_spec.py`) he real
 
 Prueba | Captura
 :------:|:-------:
-*Agregamos un pedido* |
+*Agregamos un pedido* | ![image](https://github.com/user-attachments/assets/f2ae755b-4796-4353-96e6-e2a375e2f8ab)
 *Eliminamos un producto* |
 *Mostramos todos los pedidos* |
 
