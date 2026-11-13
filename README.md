@@ -1,25 +1,25 @@
-# RESTful API para la gestión de datos de una tienda
+# RESTful API for managing a store's data
 
-Esta aplicación permite el manejo digital del _store_ de una tienda. El sistema utiliza una RESTful API creada con **Flask** para manejar los datos, que son gestionados con ayuda de un árbol de búsqueda binario, una lista enlazada y técnicas de serialización. Se asegura la persistencia de datos grabándolos en un JSON.
+This application enables digital management of a shop's _store_. The system uses a RESTful API built with **Flask** to handle the data, which is managed with the help of a binary search tree, a linked list and serialization techniques. Data persistence is ensured by saving it to a JSON file.
 
-El proyecto sigue principios de código limpio. Es decir, legibilidad, simplicidad, modularidad, nombrado claro y consistente, entre otros.
+The project follows clean code principles. That is: readability, simplicity, modularity, clear and consistent naming, among others.
 
 &nbsp;
 
-## Instalación y ejecución
+## Installation and execution
 
-1. **Clona** este repositorio en tu máquina local
-2. Crea un **entorno virtual**. Recomiento el uso de Anaconda
+1. **Clone** this repository to your local machine
+2. Create a **virtual environment**. I recommend using Anaconda
 
 ```
 conda create -n tienda-api python=3.10
 conda activate tienda-api
 ```
 
-3. Instala las **dependencias**. No son muchas, pero son necesarias, `pip install -r requirements.txt`
-4. Ejecuta la API con `python -m app.app` o `python app/app.py`. La API estará disponible en `http://127.0.0.1:5000/`
+3. Install the **dependencies**. There aren't many, but they are necessary, `pip install -r requirements.txt`
+4. Run the API with `python -m app.app` or `python app/app.py`. The API will be available at `http://127.0.0.1:5000/`
 
-Alternativamente, puedes crear un contenedor **Docker** para ejecutar la aplicación:
+Alternatively, you can create a **Docker** container to run the application:
 
 ```
 docker build -t tienda-online-app .
@@ -28,39 +28,39 @@ docker run -d -p 5000:5000 --name online-shop-container tienda-online-app
 
 &nbsp;
 
-## Endpoints disponibles
-> Se trata de una API de arquitectura **RESTful**, por lo que todas las **operaciones CRUD** (Crear, leer, actualizar y eliminar) están disponibles.
+## Available endpoints
+> This is a **RESTful** architecture API, so all **CRUD operations** (Create, Read, Update and Delete) are available.
 
-#### Productos (BST)
-| Método | Endpoint           | Descripción                       |
+#### Products (BST)
+| Method | Endpoint           | Description                       |
 |--------|--------------------|-----------------------------------|
-| POST   | `/products`        | Agregar un producto              |
-| GET    | `/products/<id>`   | Obtener un producto por ID       |
-| PUT    | `/products/<id>`   | Actualizar un producto por ID    |
-| DELETE | `/products/<id>`   | Eliminar un producto por ID      |
+| POST   | `/products`        | Add a product                    |
+| GET    | `/products/<id>`   | Get a product by ID              |
+| PUT    | `/products/<id>`   | Update a product by ID           |
+| DELETE | `/products/<id>`   | Delete a product by ID           |
 
-#### Pedidos (Lista Enlazada)
-| Método | Endpoint       | Descripción                          |
+#### Orders (Linked List)
+| Method | Endpoint       | Description                          |
 |--------|---------------|--------------------------------------|
-| POST   | `/orders`      | Crear un nuevo pedido               |
-| GET    | `/orders/<id>` | Obtener un pedido por ID            |
-| PUT    | `/orders/<id>` | Actualizar un pedido existente      |
-| DELETE | `/orders/<id>` | Eliminar un pedido                  |
-| GET    | `/orders`      | Listar todos los pedidos            |
+| POST   | `/orders`      | Create a new order                  |
+| GET    | `/orders/<id>` | Get an order by ID                  |
+| PUT    | `/orders/<id>` | Update an existing order            |
+| DELETE | `/orders/<id>` | Delete an order                     |
+| GET    | `/orders`      | List all orders                     |
 
 
 &nbsp;
 
-## Decisiones de desarollo
+## Development decisions
 
-### **¿Por qué Flask?**
-Elegí Flask para este proyecto debido a su simplicidad y flexibilidad. A diferencia de Django, que es más pesado y estructurado, Flask permite un control total sobre la arquitectura, lo que es ideal para proyectos más pequeños o cuando se busca un enfoque personalizado sin las restricciones de un framework más grande. En comparación con FastAPI, que es más rápido y optimizado para aplicaciones asincrónicas, Flask sigue siendo adecuado para APIs que no requieren un rendimiento ultra alto o concurrencia compleja
+### **Why Flask?**
+I chose Flask for this project because of its simplicity and flexibility. Unlike Django, which is heavier and more structured, Flask allows full control over the architecture, which is ideal for smaller projects or when a customized approach is wanted without the restrictions of a larger framework. Compared with FastAPI, which is faster and optimized for asynchronous applications, Flask remains suitable for APIs that do not require ultra-high performance or complex concurrency
 
-### **Uso de un Árbol Binario de Búsqueda (BST) para la gestión de productos**
-- Permite búsquedas eficientes en **O(log n)** en promedio.
-- Optimiza la gestión de grandes volúmenes de productos.
+### **Using a Binary Search Tree (BST) for product management**
+- Allows efficient searches in **O(log n)** on average.
+- Optimizes the management of large volumes of products.
 
-Si deseas entender mejor su funcionamiento, puedes probarlo separadamente:
+If you want to better understand how it works, you can try it on its own:
 
 ```
 bst = BinarySearchTree()
@@ -77,20 +77,20 @@ print("Buscar clave 100:", bst.search(100))
 print("Buscar clave 2:", bst.search(2))
 ````
 
-### **Uso de Lista Enlazada para los pedidos**
-- Permite agregar y eliminar pedidos con mucha facilidad y rapidez ya que no hay necesidad de redimensionar estructuras.
-- Las *linked list* se adaptan bien a sistemas donde los pedidos se gestionan en **orden de llegada**, como es el caso que nos ocupa: una tienda online.
+### **Using a Linked List for orders**
+- Makes it very easy and fast to add and remove orders since there is no need to resize structures.
+- *Linked lists* fit well in systems where orders are handled in **order of arrival**, as in the case at hand: an online store.
 
 &nbsp;
 
-## Pruebas de uso
+## Usage tests
 
-Además de probar la API con tests (`pytest test/api_endpoints_spec.py`), he realizado varias pruebas de uso utilizando Postman y Bruno.
+Besides testing the API with tests (`pytest test/api_endpoints_spec.py`), I have run several usage tests using Postman and Bruno.
 
-Prueba | Captura
+Test | Screenshot
 :------:|:-------:
-*Agregamos un pedido* | ![image](https://github.com/user-attachments/assets/f2ae755b-4796-4353-96e6-e2a375e2f8ab)
-*Eliminamos un producto* | ![image](https://github.com/user-attachments/assets/e55e30d5-a24e-4916-a93e-77da4324f904)
-*Mostramos todos los pedidos* | ![image](https://github.com/user-attachments/assets/ade35ced-2115-43dd-a573-c764e6898aa8)
+*We add an order* | ![image](https://github.com/user-attachments/assets/f2ae755b-4796-4353-96e6-e2a375e2f8ab)
+*We delete a product* | ![image](https://github.com/user-attachments/assets/e55e30d5-a24e-4916-a93e-77da4324f904)
+*We show all orders* | ![image](https://github.com/user-attachments/assets/ade35ced-2115-43dd-a573-c764e6898aa8)
 
 
